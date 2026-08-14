@@ -2,245 +2,286 @@
 
 ## Project Overview
 
-This project demonstrates the development of a secure Linux deployment baseline for a fictional enterprise environment.
+This project demonstrates the design, implementation, automation, and validation of a secure Linux deployment baseline for a fictional enterprise environment.
 
-The project combines operating-system hardening, security automation, configuration validation, logging, Public Key Infrastructure (PKI), certificate management, and security documentation.
+The project combines Linux operating-system hardening, Bash security automation, configuration validation, security logging, Public Key Infrastructure (PKI), certificate management, and executive security communication.
 
-The objective is to demonstrate how cybersecurity professionals can transform security requirements into repeatable technical controls that reduce configuration errors, improve consistency, and strengthen enterprise security.
+The objective is to demonstrate how cybersecurity professionals can translate security requirements into repeatable technical controls, validate those controls, identify configuration gaps, manage certificate trust, and communicate security risk to organizational leadership.
 
 ## Fictional Organization
 
 **NovaCore Technologies** is a fictional technology organization deploying Linux workstations and servers across its enterprise environment.
 
-Security leadership has identified several challenges:
+Security leadership identified several challenges:
 
-- Inconsistent workstation configurations
+- Inconsistent Linux configurations
 - Manual deployment processes
-- Insufficient system-hardening standards
-- Inconsistent logging configurations
-- Weak certificate-management practices
-- Risk of configuration drift
+- Configuration drift
+- Unnecessary service exposure
+- Inconsistent security logging
 - Limited validation of security controls
+- Certificate-management risks
+- Potential for administrative configuration errors
 
-The security team is tasked with developing a standardized Linux security baseline and supporting PKI architecture.
+The security team was tasked with developing a standardized Linux security baseline supported by automation, validation, and PKI controls.
 
 ## Project Objectives
 
 - Develop a standardized Linux security baseline
 - Automate repeatable system-hardening tasks
 - Reduce manual configuration errors
-- Establish secure workstation configuration requirements
-- Implement security logging requirements
-- Develop an operating-system security checklist
-- Design a basic enterprise PKI model
-- Demonstrate certificate authority concepts
-- Document certificate signing workflows
-- Apply least-privilege principles
-- Apply defense-in-depth principles
-- Validate security configurations
-- Document implementation and validation evidence
+- Establish secure configuration requirements
+- Implement security logging controls
+- Validate system-hardening controls
+- Identify failed or incomplete controls
+- Develop remediation recommendations
+- Design an enterprise PKI model
+- Document certificate issuance and validation
+- Apply least privilege and defense in depth
+- Communicate technical risk to leadership
 
-## Security Architecture
-
-The project applies multiple layers of security:
-
-### Operating System Hardening
-
-Linux systems are configured according to an approved organizational security baseline.
-
-Example controls include:
-
-- Standardized host naming
-- Approved time-zone configuration
-- Automatic screen locking
-- Process monitoring
-- Security logging
-- Account security
-- File permissions
-- Service hardening
-- Network configuration
-- Patch management
-
-### Security Automation
-
-Repeatable configuration tasks are automated to reduce human error and improve consistency.
-
-Automation provides several benefits:
-
-- Standardized deployment
-- Faster configuration
-- Repeatability
-- Reduced administrative error
-- Easier auditing
-- Configuration consistency
-- Scalable security controls
-
-## Linux Hardening Workflow
+## Security Hardening Lifecycle
 
 ### 1. Establish Baseline
 
-Define approved security requirements based on organizational risk, business requirements, and recognized security guidance.
+Define approved security requirements based on organizational risk, system purpose, and recognized security practices.
 
 ### 2. Configure
 
-Apply required security settings to Linux systems.
+Apply required settings for:
+
+- System identification
+- Time configuration
+- Session security
+- Authentication
+- Privileged access
+- Patch management
+- Logging
+- Network services
+- File permissions
+- Remote administration
 
 ### 3. Automate
 
 Convert repeatable configuration tasks into controlled automation.
 
+Automation helps improve:
+
+- Consistency
+- Scalability
+- Repeatability
+- Deployment efficiency
+- Auditability
+- Configuration accuracy
+
 ### 4. Validate
 
-Verify that required settings were applied successfully.
+Verify that security controls were successfully implemented.
 
-### 5. Document
+Validation may include:
 
-Record configuration status and validation evidence.
+- Configuration review
+- Script-output review
+- Hostname verification
+- Time configuration verification
+- Screen-lock testing
+- Process review
+- Security-log verification
+- Service-status review
+- Listening-port review
+- Certificate inspection
 
-### 6. Monitor
+### 5. Remediate
 
-Monitor systems for security events and configuration drift.
+Document failed controls and assign corrective actions.
 
-### 7. Maintain
+### 6. Retest
 
-Update the baseline as threats, technology, and organizational requirements change.
+Validate that remediation successfully corrected the identified security gap.
 
-## Automated Security Controls
+### 7. Monitor
 
-The fictional hardening automation demonstrates several configuration categories.
+Continuously monitor systems for configuration drift, security events, vulnerabilities, and certificate lifecycle issues.
+
+## Linux Security Baseline
+
+The project evaluates multiple security domains.
 
 | Security Area | Example Control | Security Purpose |
 |---|---|---|
-| System Identification | Standardized hostname | Supports asset identification and administration |
-| Time Configuration | Approved system time zone | Supports accurate logging and event correlation |
-| Session Security | Automatic screen locking | Reduces unauthorized access to unattended systems |
+| System Identification | Standardized hostname | Supports asset management and event correlation |
+| Time Configuration | Approved time settings | Supports accurate logging and investigations |
+| Session Security | Automatic screen locking | Protects unattended systems |
 | Process Visibility | Running-process inventory | Supports monitoring and investigation |
-| Logging | Security log collection | Supports auditing and incident investigation |
-| Account Security | Authentication configuration | Reduces unauthorized access |
+| Logging | Security event collection | Supports auditing and incident response |
+| Authentication | Secure account controls | Reduces unauthorized access |
+| Privileged Access | Least privilege | Limits administrative exposure |
+| Patch Management | Security updates | Reduces exposure to known vulnerabilities |
 | Service Hardening | Disable unnecessary services | Reduces attack surface |
-| Patch Management | Update security packages | Reduces exposure to known vulnerabilities |
+| Network Security | Review listening services and firewall rules | Limits unnecessary network exposure |
+| File Security | Restrictive permissions | Protects sensitive files |
+| Remote Administration | Secure remote-access configuration | Protects administrative sessions |
+| Certificate Trust | Approved PKI configuration | Supports trusted authentication and encryption |
 
-## Public Key Infrastructure (PKI)
+## Automated Linux Hardening
 
-The project also demonstrates how PKI can support secure enterprise communications and authentication.
+The repository includes an original Bash hardening script developed for the fictional NovaCore environment.
 
-A basic PKI environment includes:
+The automation demonstrates:
 
-**Certificate Authority (CA)**  
-Issues and manages trusted digital certificates.
+- Safe dry-run operation
+- Administrative privilege validation
+- Required-command checks
+- Standardized hostname configuration
+- Time-zone configuration
+- Running-process inventory collection
+- Security-log collection
+- Automatic screen-lock configuration where supported
+- Post-hardening validation output
+- Defensive error handling
 
-**Private Key**  
-Must remain protected because possession of the CA private key allows certificates to be signed.
+The script intentionally avoids blindly changing high-impact controls such as firewall rules, SSH access, user accounts, and package removal because those changes require environment-specific review, authorization, and testing.
 
-**Certificate Signing Request (CSR)**  
-Contains identifying information and a public key that is submitted to the CA for approval.
+## Public Key Infrastructure
 
-**Digital Certificate**  
-Associates a public key with an approved identity.
+The project also demonstrates a basic enterprise PKI model.
 
-**Certificate Validation**  
-Allows systems to verify that certificates were issued by a trusted authority and remain valid.
+### Certificate Authority
+
+The Certificate Authority acts as the trusted entity responsible for approving and signing digital certificates.
+
+### Private Keys
+
+Private keys must remain protected and should never be committed to source control or distributed with certificate requests.
+
+### Certificate Signing Requests
+
+Systems generate a Certificate Signing Request containing their public key and identifying information.
+
+### Certificate Issuance
+
+The CA validates the request before signing and issuing a certificate.
+
+### Certificate Validation
+
+Certificates should be checked for:
+
+- Subject
+- Issuer
+- Validity period
+- Intended use
+- Cryptographic configuration
+- Trust chain
 
 ## Certificate Lifecycle
 
-1. Generate a private key
-2. Protect the private key
-3. Generate a Certificate Signing Request
-4. Submit the CSR to the Certificate Authority
-5. Validate the request
-6. Sign and issue the certificate
-7. Deploy the certificate
-8. Validate certificate trust
-9. Monitor expiration
-10. Renew or revoke the certificate when necessary
+1. Generate key pair
+2. Protect private key
+3. Generate Certificate Signing Request
+4. Submit CSR
+5. Validate request
+6. Sign certificate
+7. Deploy certificate
+8. Validate trust
+9. Monitor expiration and certificate status
+10. Renew or revoke when required
 
 ## Security Design Principles
 
 ### Defense in Depth
 
-System hardening, authentication controls, logging, encryption, and certificates provide multiple layers of protection.
+Linux hardening, authentication, logging, network controls, encryption, and PKI create multiple security layers.
 
 ### Least Privilege
 
-Users, services, certificates, and administrative accounts should receive only the permissions required to perform authorized functions.
+Users, administrators, services, and certificate-management functions should receive only the permissions required for authorized activities.
 
 ### Secure by Default
 
-New systems should begin with an approved security baseline rather than relying on administrators to manually secure systems after deployment.
+New systems should begin with an approved security baseline.
 
 ### Standardization
 
-Consistent configuration reduces security gaps caused by configuration differences between systems.
+Consistent configurations reduce security gaps caused by system-to-system variation.
 
 ### Automation
 
-Automation reduces repetitive manual work and helps apply approved controls consistently.
+Repeatable automation can reduce administrative errors and improve deployment consistency.
 
-## CIA Triad
+### Validation
 
-### Confidentiality
+Security controls should be verified rather than assumed to be operating correctly.
 
-Encryption, authentication, certificate-based trust, access controls, and secure configurations help prevent unauthorized disclosure.
+## Configuration Validation Scenario
 
-### Integrity
+A fictional post-hardening validation was performed against a NovaCore Linux workstation.
 
-Digital certificates, controlled configurations, logging, and validation help protect systems and information from unauthorized modification.
+The scenario evaluated 14 controls.
 
-### Availability
+**12 controls passed validation.**
 
-Standardized and tested configurations help maintain reliable access to systems while reducing security-related disruptions.
+**2 controls required remediation:**
 
-## Configuration Validation
+- An unnecessary listening service
+- Centralized security-log forwarding not yet configured
 
-Security controls should be verified rather than assumed to be working.
+The system remained in a remediation-required state until the failed controls could be corrected and independently retested.
 
-Validation may include:
+This demonstrates an important security principle:
 
-- Configuration review
-- Script execution results
-- Hostname verification
-- Time configuration verification
-- Screen-lock testing
-- Process review
-- Log verification
-- Service-status review
-- Certificate inspection
-- Certificate-chain validation
-- Permission review
+> Successful configuration or script execution does not automatically prove that a security control is effective.
 
 ## Portfolio Artifacts
 
-This repository will contain original cybersecurity portfolio artifacts demonstrating system security and PKI implementation.
+| Deliverable | Description |
+|---|---|
+| [Linux Security Hardening Baseline](linux-security-hardening-baseline.docx) | Defines standardized Linux security requirements, validation methods, deployment workflow, and exception handling. |
+| [Automated Linux Hardening Script](linux-hardening.sh) | Bash automation demonstrating controlled Linux configuration, process inventory, security-log collection, session controls, and validation. |
+| [Hardening Script Documentation](linux-hardening-script-README.md) | Documents script purpose, functionality, safe usage, output, and operational limitations. |
+| [System Hardening Validation Checklist](system-hardening-validation-checklist.docx) | Provides a repeatable process for verifying Linux security controls and recording evidence. |
+| [PKI & Certificate Architecture Guide](pki-certificate-architecture-guide.docx) | Documents certificate authorities, key protection, CSRs, certificate issuance, trust validation, renewal, revocation, and OpenSSL lab workflows. |
+| [Security Configuration Validation Report](security-configuration-validation-report.docx) | Documents post-hardening control testing, identified gaps, remediation actions, ownership, and retesting requirements. |
+| [Executive System Security Brief](executive-system-security-brief.docx) | Translates technical system-security findings into business risk, leadership recommendations, metrics, and remediation priorities. |
 
-Planned artifacts include:
+## Security Metrics
 
-- Linux Security Hardening Baseline
-- Automated Linux Hardening Script
-- System Hardening Validation Checklist
-- PKI & Certificate Architecture Guide
-- Security Configuration Validation Report
-- Executive System Security Brief
+The fictional program tracks:
+
+- Percentage of Linux systems meeting the approved baseline
+- Failed controls awaiting remediation
+- Systems approved with security exceptions
+- Systems forwarding logs to centralized monitoring
+- Unapproved listening services
+- Privileged-access findings
+- Configuration-drift findings
+- Certificates approaching expiration
+- Failed remediation validation
 
 ## Skills Demonstrated
 
-**Linux Security | System Hardening | Security Automation | Bash | Secure Configuration | Security Baselines | Logging | Process Monitoring | PKI | OpenSSL | Digital Certificates | Certificate Signing Requests | Encryption | Authentication | Least Privilege | Defense in Depth | CIA Triad | Security Documentation**
+**Linux Security | System Hardening | Bash | Security Automation | Secure Configuration | Security Baselines | Configuration Validation | Logging | Process Monitoring | Service Hardening | Least Privilege | Network Security | PKI | OpenSSL | Digital Certificates | Certificate Signing Requests | Encryption | Authentication | Defense in Depth | CIA Triad | Risk Documentation | Security Analysis | Executive Communication**
 
 ## Key Takeaways
 
-- Secure configurations should be standardized across systems.
-- Automation improves consistency and reduces manual configuration errors.
-- Security settings should be validated after implementation.
-- Logging supports security monitoring, auditing, and incident investigation.
+- Secure configurations should be standardized.
+- Automation can improve consistency and reduce manual configuration errors.
+- Security controls must be validated after implementation.
+- Failed controls should remain open until remediation is verified.
+- Logging supports monitoring, auditing, and incident investigation.
+- Unnecessary services increase attack surface.
 - PKI provides a scalable trust model for authentication and encrypted communications.
 - Private keys require strong protection.
-- Certificate management requires lifecycle planning, including issuance, renewal, expiration, and revocation.
-- Security baselines should evolve as organizational risks and technologies change.
+- Certificate security requires lifecycle management.
+- Configuration drift requires continuous monitoring.
+- Leadership visibility is important when security gaps require resources, exceptions, or cross-team remediation.
 
 ## Portfolio Disclaimer
 
 This repository contains an original fictional cybersecurity project created for defensive cybersecurity education and professional portfolio demonstration.
 
-NovaCore Technologies, its systems, configurations, certificates, users, and security environment are fictional. All scripts and configurations are intended for controlled educational environments and authorized systems only.
+NovaCore Technologies, its systems, assets, certificates, validation results, security findings, owners, and remediation activities are fictional.
+
+No production credentials, private keys, confidential organizational information, or unauthorized system-testing data are included.
 
 ## Author
 
